@@ -40,6 +40,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
+- has_many :purchase_histories
 
 ## items テーブル
 | Column          | Type       | Options                        |
@@ -67,11 +68,11 @@ Things you may want to cover:
 | city            | string     | null: false                    |
 | house_number    | string     | null: false                    |
 | building_name   | string     |                                |
-| phone_number    | integer    | null: false                    |
+| phone_number    | string     | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
 ### Association
-- has_one :purchase_history
+- belongs_to :purchase_history
 
 ## purchase_histories テーブル
 | Column          | Type       | Options                        |
@@ -80,5 +81,6 @@ Things you may want to cover:
 | item            | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :shipping_addresses
+- has_one :shipping_address
+- belongs_to :user
 - belongs_to :item
