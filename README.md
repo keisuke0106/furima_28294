@@ -80,8 +80,6 @@ Things you may want to cover:
 | --------------- | ---------- | ------------------------------ |
 | user            | references | null: false, foreign_key: true |
 | item            | references | null: false, foreign_key: true |
-| created_at      | text       | null: false                    |
-| updated_at      | text       | null: false                    |
 
 ### Association
 - belongs_to :user
