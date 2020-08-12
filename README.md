@@ -40,8 +40,6 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_many :purchase_histories
-- has_one :shipping_address
 
 ## items テーブル
 | Column          | Type       | Options                        |
@@ -73,7 +71,7 @@ Things you may want to cover:
 | user            | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
+- has_one :purchase_history
 
 ## purchase_histories テーブル
 | Column          | Type       | Options                        |
@@ -82,5 +80,5 @@ Things you may want to cover:
 | item            | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
+- belongs_to :shipping_addresses
 - belongs_to :item
