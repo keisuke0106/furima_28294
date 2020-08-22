@@ -10,15 +10,15 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :explanation
-    validates :category
-    validates :condition
-    validates :postage_type
-    validates :preparation_day
-    validates :shipping_region
-    validates :price
+    validates :category_id
+    validates :condition_id
+    validates :postage_type_id
+    validates :preparation_day_id
+    validates :shipping_region_id
+    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   end
   
-  validates :category_id, :condition_id, :postage_type_id, :shipping_region_id, :preparation_day_id, numericality: { other_than: 1 }
+    validates :category_id, :condition_id, :postage_type_id, :shipping_region_id, :preparation_day_id, numericality: { other_than: 1 }
 
   belongs_to :user
   has_one :purchase_history
