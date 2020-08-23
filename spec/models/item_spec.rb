@@ -69,7 +69,7 @@ describe Item do
       end
 
       it 'priceが300未満だと登録できない' do
-        @item.price = '290'
+        @item.price = '299'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
