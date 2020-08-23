@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     validates :postage_type_id
     validates :preparation_day_id
     validates :shipping_region_id
-    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
   validates :category_id, :condition_id, :postage_type_id, :shipping_region_id, :preparation_day_id, numericality: { other_than: 1 }
