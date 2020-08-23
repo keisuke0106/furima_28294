@@ -11,6 +11,16 @@ describe Item do
       it 'image, name, explanation, category_id, condition_id, postage_type_id, preparation_day_id, shipping_region_id, priceが存在すれば登録できる' do
         expect(@item).to be_valid
       end
+
+      it 'priceが300以上で登録ができる' do
+        @item.price = '301'
+        expect(@item).to be_valid
+      end
+
+      it 'priceが9999999未満で登録できる' do
+        @item.price = '9999999'
+        expect(@item).to be_valid
+      end
     end
 
     context '商品登録がうまくいかないとき' do
