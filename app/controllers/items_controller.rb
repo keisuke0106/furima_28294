@@ -27,7 +27,6 @@ class ItemsController < ApplicationController
 
   def update
     @items = Item.find(params[:id])
-
     if @items.update(item_params)
       redirect_to action: :show
     else
@@ -35,10 +34,14 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def destroy
     @item = Item.find(params[:id])
-    @item.destroy
-    redirect_to('/')
+    if @item.destroy
+      redirect_to('/')
+    else
+      render :show
+    end
   end
 
   private
