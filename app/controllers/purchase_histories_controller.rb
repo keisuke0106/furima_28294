@@ -2,11 +2,16 @@ class PurchaseHistoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @item = Item.find(params[:item_id])
-    @purchase = Purchase.new
+    item = Item.find(params[:item_id])
+    if (current_user.id != item.user_id) && item.purchase_history.blank?
+      @item = Item.find(params[:item_id])
+      @purchase = Purchase.new
+    else
+      redirect_to root_path 
+    end
   end
-    
-    
+
+
   def create
     @item = Item.find(params[:item_id])
     @purchase = Purchase.new(purchase_params)

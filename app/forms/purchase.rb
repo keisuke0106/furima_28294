@@ -9,6 +9,7 @@ class Purchase
     validates :shipping_region_id
     validates :city
     validates :house_number
+    validates :token
   end
 
     validates :shipping_region_id, numericality: { other_than: 1 }
