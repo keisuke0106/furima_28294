@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :purchase do
     post_code             { '123-4567' }
     shipping_region_id    { 2 }
